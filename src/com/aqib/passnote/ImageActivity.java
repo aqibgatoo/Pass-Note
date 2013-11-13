@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 
 public class ImageActivity extends Activity {
 
+	private PointsCollector pointsCollector=new PointsCollector();
 	private static final CharSequence title = "Create your Pass Point Sequence";
 	private static final CharSequence message = "Touch four points to create your pass point sequence";
 
@@ -33,6 +32,9 @@ public class ImageActivity extends Activity {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 
+						Intent intent=new Intent(ImageActivity.this,MainActivity.class);
+						startActivity(intent);
+						
 					}
 				});
 
@@ -44,15 +46,7 @@ public class ImageActivity extends Activity {
 	private void addTouchListener() {
 
 		ImageView imageView = (ImageView) findViewById(R.id.touch_image);
-		imageView.setOnTouchListener(new OnTouchListener() {
-
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-
-				return false;
-			}
-		});
-
+		imageView.setOnTouchListener(pointsCollector);
 	}
 
 	@Override
