@@ -2,8 +2,16 @@
 
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/changeimage"
+        android:title="@string/change_picture"/>
+    <item
+        android:id="@+id/lock"
+        android:title="@string/lock_app"/>
+    <item
+        android:id="@+id/exit"
+        android:title="@string/exit"/>
 
 </menu>

@@ -13,7 +13,7 @@ import android.view.View.OnTouchListener;
 
 public class PointsCollector implements OnTouchListener {
 
-	public  static final String LOGTAG = "MAG";
+
 private List<Point> list = new ArrayList<Point>();
 
 	@Override
@@ -21,7 +21,7 @@ private List<Point> list = new ArrayList<Point>();
 
 		int x = Math.round(event.getRawX());
 		int y = Math.round(event.getRawY());
-		Log.d(LOGTAG, String.format("coordinates %d %d ", x, y));
+		Log.d(MainActivity.LOGTAG, String.format("coordinates %d %d ", x, y));
 		
 		list.add(new Point(x, y));
 

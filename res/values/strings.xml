@@ -8,5 +8,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="hint">Enter a note for test</string>
     <string name="button_text">Save</string>
+    <string name="change_picture">Change Picture</string>
+    <string name="exit">Exit</string>
+    <string name="lock_app">Lock App</string>
 
 </resources>
