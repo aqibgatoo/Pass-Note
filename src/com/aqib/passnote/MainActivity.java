@@ -2,19 +2,17 @@ package com.aqib.passnote;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	public static final String LOGTAG = "MAG";
-	private static final String KEY = "hello";
+//	private static final String KEY = "hello";
 
 	// private EditText text;
 
