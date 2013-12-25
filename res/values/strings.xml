@@ -11,5 +11,6 @@
     <string name="change_picture">Change Picture</string>
     <string name="exit">Exit</string>
     <string name="lock_app">Lock App</string>
+    <string name="create_note">Create</string>
 
 </resources>

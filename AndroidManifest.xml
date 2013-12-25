@@ -27,6 +27,7 @@
             android:name="com.aqib.passnote.MainActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <activity android:name=".NoteEditorActivity"/>
     </application>
 
 </manifest>

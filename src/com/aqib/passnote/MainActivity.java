@@ -107,7 +107,10 @@ public class MainActivity extends ListActivity {
 			onMenuExitClick(item);
 			handled = true;
 			break;
-
+		case R.id.create_note:
+			createNote();
+			handled=true;
+			break;
 		default:
 			handled = super.onMenuItemSelected(featureId, item);
 			break;
@@ -115,6 +118,17 @@ public class MainActivity extends ListActivity {
 		}
 
 		return handled;
+	}
+
+	private void createNote() {
+
+		NoteItem item=NoteItem.getNew();
+		
+		Intent intent=new Intent(this,NoteEditorActivity.class);
+		intent.putExtra("key", item.getKey());
+		intent.putExtra("value",item.getValue());
+		startActivityForResult(intent, 1001);
+		
 	}
 
 	public void onMenuChangePictureClick(MenuItem item) {
