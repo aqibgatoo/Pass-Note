@@ -27,13 +27,13 @@ public class MainActivity extends ListActivity {
 	// private EditText text;
 
 	private NoteItemDataSource dataSource;
-	List<NoteItem> noteList;
+	private List<NoteItem> noteList;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 //		setButtonListener();
-		
+		dataSource=new NoteItemDataSource(this);
 		refreshDispalay();
 
 		// text = (EditText) findViewById(R.id.edit_text);
@@ -77,7 +77,7 @@ public class MainActivity extends ListActivity {
 	private void refreshDispalay() {
 	
 		noteList=dataSource.getAll();
-		ArrayAdapter<NoteItem> adapter=new ArrayAdapter<NoteItem>(this, android.R.layout.simple_list_item_1,noteList);
+		ArrayAdapter<NoteItem> adapter=new ArrayAdapter<NoteItem>(this, R.layout.list_item_layout,noteList);
 		setListAdapter(adapter);
 	}
 
