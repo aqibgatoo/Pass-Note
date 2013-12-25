@@ -1,26 +1,41 @@
 package com.aqib.passnote;
 
+import java.util.List;
+
+import com.aqib.passnote.data.NoteItem;
+import com.aqib.passnote.data.NoteItemDataSource;
+
 import android.app.Activity;
+import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract.CommonDataKinds.Note;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends ListActivity {
 	public static final String LOGTAG = "MAG";
 //	private static final String KEY = "hello";
 
 	// private EditText text;
 
+	private NoteItemDataSource dataSource;
+	List<NoteItem> noteList;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setButtonListener();
+//		setButtonListener();
+		
+		refreshDispalay();
+
 		// text = (EditText) findViewById(R.id.edit_text);
 		// SharedPreferences preferences=getPreferences(MODE_PRIVATE);
 		// String string=preferences.getString(KEY, null);
@@ -32,31 +47,38 @@ public class MainActivity extends Activity {
 
 	}
 
-	private void setButtonListener() {
+//	private void setButtonListener() {
+//
+//		Button button = (Button) findViewById(R.id.save_button);
+//		button.setOnClickListener(new OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//
+//				// text = (EditText) findViewById(R.id.edit_text);
+//				// String value=text.getText().toString();
+//				// SharedPreferences preferences=getPreferences(MODE_PRIVATE);
+//				// SharedPreferences.Editor editor=preferences.edit();
+//				// editor.putString(KEY,value);
+//				// editor.commit();
+//
+//				// String value = getString(R.id.edit_text);
+//				//
+//				// preferences = getPreferences(MODE_PRIVATE);
+//				// SharedPreferences.Editor editor = preferences.edit();
+//				// editor.putString(KEY, value);
+//				// editor.commit();
+//
+//			}
+//		});
+//
+//	}
 
-		Button button = (Button) findViewById(R.id.save_button);
-		button.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-				// text = (EditText) findViewById(R.id.edit_text);
-				// String value=text.getText().toString();
-				// SharedPreferences preferences=getPreferences(MODE_PRIVATE);
-				// SharedPreferences.Editor editor=preferences.edit();
-				// editor.putString(KEY,value);
-				// editor.commit();
-
-				// String value = getString(R.id.edit_text);
-				//
-				// preferences = getPreferences(MODE_PRIVATE);
-				// SharedPreferences.Editor editor = preferences.edit();
-				// editor.putString(KEY, value);
-				// editor.commit();
-
-			}
-		});
-
+	private void refreshDispalay() {
+	
+		noteList=dataSource.getAll();
+		ArrayAdapter<NoteItem> adapter=new ArrayAdapter<NoteItem>(this, android.R.layout.simple_list_item_1,noteList);
+		setListAdapter(adapter);
 	}
 
 	@Override
