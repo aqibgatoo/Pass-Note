@@ -3,9 +3,7 @@ package com.aqib.passnote;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.Intent;
 import android.graphics.Point;
-import android.sax.StartElementListener;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;

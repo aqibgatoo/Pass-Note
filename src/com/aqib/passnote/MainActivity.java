@@ -2,29 +2,25 @@ package com.aqib.passnote;
 
 import java.util.List;
 
-import com.aqib.passnote.data.NoteItem;
-import com.aqib.passnote.data.NoteItemDataSource;
-
-import android.app.Activity;
-import android.app.ListActivity;
-import android.content.Context;
+import com.actionbarsherlock.app.SherlockListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract.CommonDataKinds.Note;
-import android.util.Log;
 import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends ListActivity {
+import com.aqib.passnote.data.NoteItem;
+import com.aqib.passnote.data.NoteItemDataSource;
+
+public class MainActivity extends SherlockListActivity {
+	private static final String NOTE_VALUE = "value";
+	private static final String NOTE_KEY = "key";
 	public static final int NOTE_EDITOR_CONSTANT = 1001;
 	public static final String LOGTAG = "MAG";
 	public static final int MENU_DELETE_ID=1002;
@@ -95,7 +91,7 @@ public class MainActivity extends ListActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
+		getSherlock().getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
 
@@ -133,8 +129,8 @@ public class MainActivity extends ListActivity {
 		NoteItem item = NoteItem.getNew();
 
 		Intent intent = new Intent(this, NoteEditorActivity.class);
-		intent.putExtra("key", item.getKey());
-		intent.putExtra("value", item.getValue());
+		intent.putExtra(NOTE_KEY, item.getKey());
+		intent.putExtra(NOTE_VALUE, item.getValue());
 		startActivityForResult(intent, NOTE_EDITOR_CONSTANT);
 
 	}
@@ -163,7 +159,7 @@ public class MainActivity extends ListActivity {
 
 	public void onMenuExitClick(MenuItem item) {
 
-		finish();
+		System.exit(1);
 
 	}
 	@Override
@@ -171,8 +167,8 @@ public class MainActivity extends ListActivity {
 	
 		NoteItem item=noteList.get(position);
 		Intent intent = new Intent(this, NoteEditorActivity.class);
-		intent.putExtra("key", item.getKey());
-		intent.putExtra("value", item.getValue());
+		intent.putExtra(NOTE_KEY, item.getKey());
+		intent.putExtra(NOTE_VALUE, item.getValue());
 		startActivityForResult(intent, NOTE_EDITOR_CONSTANT);
 
 	}
@@ -181,8 +177,8 @@ public class MainActivity extends ListActivity {
 
 		if (requestCode==NOTE_EDITOR_CONSTANT&& resultCode==RESULT_OK) {
 			NoteItem item=new NoteItem();
-			item.setKey(data.getStringExtra("key"));
-			item.setValue(data.getStringExtra("value"));
+			item.setKey(data.getStringExtra(NOTE_KEY));
+			item.setValue(data.getStringExtra(NOTE_VALUE));
 			dataSource.update(item);
 			refreshDisplay();
 		}
@@ -197,7 +193,7 @@ public class MainActivity extends ListActivity {
 	
 	}
 	@Override
-	public boolean onContextItemSelected(MenuItem item) {
+	public boolean onContextItemSelected(android.view.MenuItem item) {
 
 		if (item.getItemId()==MENU_DELETE_ID) {
 			NoteItem note=noteList.get(currentNode);

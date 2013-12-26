@@ -1,24 +1,21 @@
 package com.aqib.passnote;
 
-import com.aqib.passnote.data.NoteItem;
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.EditText;
 
-@SuppressLint("NewApi")
-public class NoteEditorActivity extends Activity {
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
+import com.aqib.passnote.data.NoteItem;
+
+public class NoteEditorActivity extends SherlockActivity {
 
 	private NoteItem item;
 
-	@SuppressLint("NewApi")
-	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.android_editor_layout);
-		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 		Intent intent = this.getIntent();
 		item = new NoteItem();
@@ -28,7 +25,6 @@ public class NoteEditorActivity extends Activity {
 		EditText editText = (EditText) findViewById(R.id.textEdit);
 		editText.setText(item.getValue());
 		editText.setSelection(item.getValue().length());
-
 	}
 
 	public void saveAndFinish() {

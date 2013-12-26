@@ -3,7 +3,8 @@ package com.aqib.passnote;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.app.Activity;
+import com.actionbarsherlock.app.SherlockActivity;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
@@ -11,13 +12,13 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
+import com.actionbarsherlock.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 
-public class ImageActivity extends Activity {
+public class ImageActivity extends SherlockActivity {
 
 	// private PointsCollector pointsCollector=new PointsCollector();
 	private static final CharSequence title = "Create your Pass Point Sequence";
@@ -81,7 +82,7 @@ public class ImageActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.image, menu);
+		getSherlock().getMenuInflater().inflate(R.menu.image, menu);
 		return true;
 	}
 
