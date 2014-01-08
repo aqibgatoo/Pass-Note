@@ -36,12 +36,11 @@ public class MainActivity extends SherlockListActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+//		setContentView(R.layout.activity_main);
 		// setButtonListener();
 		registerForContextMenu(getListView());
 		dataSource = new NoteItemDataSource(this);
 		refreshDisplay();
-
 		// text = (EditText) findViewById(R.id.edit_text);
 		// SharedPreferences preferences=getPreferences(MODE_PRIVATE);
 		// String string=preferences.getString(KEY, null);
@@ -86,6 +85,8 @@ public class MainActivity extends SherlockListActivity {
 		ArrayAdapter<NoteItem> adapter = new ArrayAdapter<NoteItem>(this,
 				R.layout.list_item_layout, noteList);
 		setListAdapter(adapter);
+	
+	
 	}
 
 	@Override

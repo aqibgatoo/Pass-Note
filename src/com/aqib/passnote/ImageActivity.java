@@ -3,7 +3,10 @@ package com.aqib.passnote;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.actionbarsherlock.ActionBarSherlock;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.internal.ActionBarSherlockCompat;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,7 +15,9 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.util.Log;
+
 import com.actionbarsherlock.view.Menu;
+
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -31,6 +36,8 @@ public class ImageActivity extends SherlockActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_image);
 		
+		ActionBar compat=getSupportActionBar();
+		compat.hide();
 		addTouchListener();
 		showPrompt();
 		

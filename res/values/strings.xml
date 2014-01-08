@@ -12,5 +12,6 @@
     <string name="exit">Exit</string>
     <string name="lock_app">Lock App</string>
     <string name="create_note">Create</string>
+    <string name="cloud">Cloud</string>
 
 </resources>
