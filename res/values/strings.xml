@@ -9,9 +9,20 @@
     <string name="hint">Enter a note for test</string>
     <string name="button_text">Save</string>
     <string name="change_picture">Change Picture</string>
-    <string name="exit">Exit</string>
+    <string name="exit">Reset Passpoints</string>
     <string name="lock_app">Lock App</string>
     <string name="create_note">Create</string>
     <string name="cloud">Cloud</string>
-
+      <string name="create_passpoints">Create Your Passpoint Sequence</string>
+    <string name="create_passpoints_text">Touch four points on the image to set the passpoint sequence. You must click the same points in future to gain access to your notes.</string>
+  <string name="saving_passpoints">Storing passpoints...</string>
+     <string name="checking_passpoints">Checking passpoints...</string>
+    <string name="access_denied">Access denied.</string>
+      <string name="enter_passpoints_title">Login</string>
+    <string name="enter_passpoints_text">You can now log in by re-entering your passpoints.</string>
+     <string name="take_a_photo">Take a photo</string>
+    <string name="browse_the_gallery">Browse gallery ...</string>
+     <string name="replace_lock_image">Replace Lock Image</string>
+         <string name="unable_to_display_image">Unable to display image</string>
+             <string name="unable_to_load_photo_file">Unable to load photo file.</string>
 </resources>
